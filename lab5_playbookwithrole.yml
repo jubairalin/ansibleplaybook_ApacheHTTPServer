@@ -1,0 +1,5 @@
+---
+- hosts: ansiblenode1.myindia.com
+  roles:
+   - webserver1
+

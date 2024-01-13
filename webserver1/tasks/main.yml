@@ -1,0 +1,7 @@
+---
+- name: installing apache server
+  yum: name=httpd state=latest
+  notify:
+    - openport
+    - startwebserver
+

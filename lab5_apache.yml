@@ -1,0 +1,13 @@
+---
+- hosts: linuxservers
+  tasks:
+    - name: Install Apache Web Server
+      yum: name=httpd state=latest
+      notify:
+        - openport80
+        - startwebserver
+  handlers:
+    - name: openport80
+      service: name=httpd state=started
+    - name: startwebserver
+      firewalld: port=80/tcp permanent=true state=enabled immediate=yes
